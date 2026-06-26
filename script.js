@@ -304,9 +304,30 @@ if (whatsapp) {
 /* ==========================================================================
    INFINITE MARQUEE
    ========================================================================== */
+const track = document.querySelector(".marquee-track");
 
-const marqueeTrack = document.querySelector(".marquee-track");
+// Duplicate the content for an infinite loop
+track.innerHTML += track.innerHTML;
 
-if (marqueeTrack) {
-  marqueeTrack.innerHTML += marqueeTrack.innerHTML;
-}
+
+const galleryImages = document.querySelectorAll(".gallery-item img");
+const lightbox = document.getElementById("lightbox");
+const lightboxImg = document.getElementById("lightbox-img");
+const closeBtn = document.querySelector(".close");
+
+galleryImages.forEach(img => {
+  img.addEventListener("click", () => {
+    lightbox.classList.add("active");
+    lightboxImg.src = img.src;
+  });
+});
+
+closeBtn.addEventListener("click", () => {
+  lightbox.classList.remove("active");
+});
+
+lightbox.addEventListener("click", (e) => {
+  if (e.target === lightbox) {
+    lightbox.classList.remove("active");
+  }
+});
