@@ -542,7 +542,6 @@ button {
     font-size: 16px;
   }
 }
-
 .section {
   padding: 130px 7vw;
 }
@@ -559,8 +558,7 @@ button {
   align-items: end;
 }
 
-.about h2,
-.services h2 {
+.about h2 {
   font-size: clamp(55px, 7vw, 104px);
   margin: 28px 0 42px;
   line-height: 0.96;
@@ -574,20 +572,22 @@ button {
 }
 
 .about-copy {
-  padding-bottom: 48px;
   max-width: 650px;
+  padding-bottom: 48px;
 }
 
 .about-copy p {
   font-size: 16px;
   line-height: 1.75;
   color: #5f5d58;
-  margin: 0 0 20px;
+  margin-bottom: 20px;
 }
+
+/* Images */
 
 .about-visual {
   position: relative;
-  margin-top: 60px;
+  margin-top: 70px;
 }
 
 .about-images {
@@ -598,12 +598,109 @@ button {
 
 .about-image {
   width: 100%;
-  height: 30px;
-  object-fit: contain;
-  border-radius: 6px;
+  height: 620px;
+  object-fit: cover;
+  border-radius: 8px;
   display: block;
 }
 
+.visual-stamp {
+  position: absolute;
+  bottom: 30px;
+  left: 30px;
+
+  background: rgba(0, 0, 0, 0.82);
+  color: #fff;
+
+  padding: 18px 24px;
+  border-radius: 10px;
+
+  backdrop-filter: blur(8px);
+}
+
+.visual-stamp span {
+  display: block;
+  font-size: 32px;
+  font-weight: 700;
+}
+
+.visual-stamp small {
+  font-size: 13px;
+  line-height: 1.5;
+  letter-spacing: 1px;
+}
+
+.about-quote {
+  position: absolute;
+  right: 40px;
+  bottom: 40px;
+
+  background: rgba(255, 255, 255, 0.92);
+
+  padding: 20px 28px;
+  border-radius: 8px;
+
+  font-weight: 600;
+  line-height: 1.7;
+
+  color: #111;
+}
+
+/* Tablet */
+
+@media (max-width: 992px) {
+  .about-layout {
+    grid-template-columns: 1fr;
+    gap: 50px;
+  }
+
+  .about-images {
+    grid-template-columns: 1fr;
+  }
+
+  .about-image {
+    height: 500px;
+  }
+
+  .visual-stamp {
+    left: 20px;
+    bottom: 20px;
+  }
+
+  .about-quote {
+    position: static;
+    margin-top: 20px;
+    width: max-content;
+  }
+}
+
+/* Mobile */
+
+@media (max-width: 768px) {
+  .section {
+    padding: 90px 24px;
+  }
+
+  .about h2 {
+    font-size: 48px;
+  }
+
+  .about-image {
+    height: 320px;
+  }
+
+  .visual-stamp {
+    padding: 14px 18px;
+  }
+
+  .visual-stamp span {
+    font-size: 24px;
+  }
+
+  .about-quote {
+    width: 100%;
+  }
+}
 .counter {
   display: inline-block;
   min-width: 90px;
@@ -631,6 +728,7 @@ button {
   position: absolute;
   right: 24px;
   top: 24px;
+  height: 140px;
 
   padding: 26px 30px;
 
@@ -2485,5 +2583,16 @@ button {
     min-width: 280px;
     min-height: 220px;
     flex-shrink: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .about-images {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .about-image {
+    height: 260px;
   }
 }
